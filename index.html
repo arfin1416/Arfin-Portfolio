@@ -1,153 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Arfin Rahman Nirjona | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Arfin Rahman Nirjona's Professional Portfolio Website">
+  <meta name="author" content="Arfin Rahman Nirjona">
+  <title>Arfin Rahman Nirjona</title>
   <style>
-    body {
+    :root {
+      --primary-color: #222831;
+      --secondary-color: #393e46;
+      --accent-color: #00adb5;
+      --text-color: #eeeeee;
+      --bg-color: #222831;
+      --card-bg: #393e46;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      margin: 0; padding: 0;
     }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2rem;
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
     }
-    h1, h2, h3 {
-      text-align: center;
-      color: #222;
-    }
-    .profile-section {
+
+    header {
+      background: var(--primary-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1rem;
       display: flex;
-      flex-wrap: wrap;
+      justify-content: space-between;
       align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    nav a {
+      color: var(--text-color);
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-      background: white;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(to right, #232526, #414345);
       padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
-    .profile-img {
-      width: 250px;
-      height: auto;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      object-fit: cover;
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent-color);
     }
-    .profile-text {
+
+    .hero p {
+      font-size: 1.2rem;
       max-width: 600px;
     }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #007bff;
-      color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
-      margin-top: 1rem;
-      transition: background 0.3s ease;
-    }
-    .btn:hover {
-      background: #0056b3;
-    }
-    .skills {
-      margin-top: 3rem;
-    }
-    .skill {
-      margin-bottom: 1rem;
-    }
-    .skill-name {
-      margin-bottom: 0.3rem;
-    }
-    .progress {
-      background-color: #ddd;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-    .progress-bar {
-      height: 20px;
-      background-color: #007bff;
-      color: white;
+
+    section {
+      padding: 3rem 1rem;
       text-align: center;
-      line-height: 20px;
     }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--accent-color);
+    }
+
+    img {
+      max-width: 300px;
+      width: 90%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      margin: 1rem;
+      transition: transform 0.3s;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    input,
+    textarea {
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      padding: 0.75rem;
+      background-color: var(--accent-color);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #019ca1;
+    }
+
+    .top-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 10px 15px;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .top-button.show {
+      display: block;
+    }
+
     footer {
       text-align: center;
-      padding: 2rem;
-      background-color: #222;
-      color: white;
-      margin-top: 3rem;
+      padding: 2rem 1rem;
+      background-color: var(--secondary-color);
     }
-    @media (max-width: 700px) {
-      .profile-section {
-        flex-direction: column;
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
       }
-      .profile-img {
-        width: 80%;
-        max-width: 300px;
-      }
-      .profile-text {
-        max-width: 100%;
+      nav a {
+        margin: 0 0.5rem;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Welcome to My Portfolio</h1>
+  <header>
+    <div><strong>Arfin's Portfolio</strong></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#hobby">Hobby</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <section class="profile-section" id="about">
-      <img
-        src="https://github.com/arfin1416/Arfin-Portfolio/blob/main/self%20intro.png?raw=true"
-        alt="Arfin Rahman Nirjona Profile Picture"
-        class="profile-img"
-        loading="lazy"
-      />
-      <div class="profile-text">
-        <h2>Hi, I'm Arfin Rahman Nirjona 👋</h2>
-        <p>
-          I'm a passionate web enthusiast and aspiring creative professional. With a deep love for design and storytelling, I blend my skills into everything I create — whether it's social media management, graphics, or building something meaningful. Let's build something amazing together!
-        </p>
-        <a href="#" class="btn">Download Resume</a>
-      </div>
-    </section>
+  <section class="hero">
+    <h1 id="typewriter"></h1>
+    <p>Welcome to my creative space on the web. Discover my work, hobbies, and passions.</p>
+  </section>
 
-    <section class="skills" id="skills">
-      <h2>Skills</h2>
-      <div class="skill">
-        <div class="skill-name">HTML</div>
-        <div class="progress">
-          <div class="progress-bar" style="width: 90%;">90%</div>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="skill-name">CSS</div>
-        <div class="progress">
-          <div class="progress-bar" style="width: 85%;">85%</div>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="skill-name">Photoshop</div>
-        <div class="progress">
-          <div class="progress-bar" style="width: 80%;">80%</div>
-        </div>
-      </div>
-      <div class="skill">
-        <div class="skill-name">Social Media Management</div>
-        <div class="progress">
-          <div class="progress-bar" style="width: 95%;">95%</div>
-        </div>
-      </div>
-    </section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Arfin Rahman Nirjona. A creative soul who loves writing, editing, cats, and marketing design. This is my portfolio showcasing everything I love and do!</p>
+  </section>
 
-    <footer>
-      &copy; 2025 Arfin Rahman Nirjona. All Rights Reserved.
-    </footer>
-  </div>
+  <section id="work">
+    <h2>My Works</h2>
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-Portfolio/blob/main/Dark%20Brown%20Minimalist%20Boho%20Aesthetic%20Style%20Restock%20Rattan%20Bag%20Instagram%20Post.png?raw=true" alt="Work 1">
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-Portfolio/blob/main/Dark%20Gray%20Simple%20Product%20Catalog%20Instagram%20Post.png?raw=true" alt="Work 2">
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-Portfolio/blob/main/Yellow%20Smart%20Watch%20Promotion%20Modern%20Instagram%20Post.png?raw=true" alt="Work 3">
+    <p>More at: <a href="https://facebook.com/brandhypeorg" target="_blank">facebook.com/brandhypeorg</a></p>
+  </section>
+
+  <section id="hobby">
+    <h2>My Hobbies</h2>
+    <p>Workout</p>
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-rahman/blob/main/z.jpg?raw=true" alt="Workout">
+    <p>Writing</p>
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-rahman/blob/main/f.jpg?raw=true" alt="Writing">
+    <p>Music & Guitar</p>
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-rahman/blob/main/a.jpg?raw=true" alt="Music">
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-rahman/blob/main/e.jpg?raw=true" alt="Guitar">
+    <p>Travel</p>
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-rahman/blob/main/c.jpg?raw=true" alt="Travel">
+    <p>Editing & Cat Lover</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form action="mailto:arnir1416@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p>Email: arnir1416@gmail.com</p>
+    <p>Location: Rangpur</p>
+    <p><a href="https://facebook.com/brandhypeorg" target="_blank">Facebook</a></p>
+  </section>
+
+  <button class="top-button" id="topBtn">↑</button>
+
+  <footer>
+    <p>&copy; 2025 Arfin Rahman Nirjona</p>
+  </footer>
+
+  <script>
+    // Typewriter effect
+    const texts = ["I am Arfin Rahman Nirjona", "Creative Designer", "Content Writer", "Cat Lover"];
+    let i = 0, j = 0, currentText = '', isDeleting = false;
+    const typewriter = document.getElementById("typewriter");
+
+    function type() {
+      currentText = texts[i];
+      typewriter.innerHTML = isDeleting ? currentText.substring(0, j--) : currentText.substring(0, j++);
+      if (!isDeleting && j === currentText.length + 1) isDeleting = true;
+      if (isDeleting && j === 0) { isDeleting = false; i = (i + 1) % texts.length; }
+      setTimeout(type, isDeleting ? 50 : 100);
+    }
+    type();
+
+    // Scroll to top
+    const topBtn = document.getElementById("topBtn");
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 200) topBtn.classList.add("show");
+      else topBtn.classList.remove("show");
+    });
+    topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
 </body>
+
 </html>
