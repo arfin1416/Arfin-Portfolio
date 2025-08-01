@@ -1,138 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Arfin Rahman Nirjona | Portfolio</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f4f4f4;
       color: #333;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
+      text-align: center;
     }
-
     .container {
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 2rem;
     }
-
-    h1, h2, h3 {
-      text-align: center;
+    .profile-img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      margin-bottom: 1rem;
+    }
+    h1 {
+      margin: 0.2rem 0;
+      font-size: 2.8rem;
       color: #222;
     }
-
-    .about-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
+    h2 {
+      margin: 0.5rem 0 1.5rem;
+      font-weight: normal;
+      color: #555;
+      font-style: italic;
+    }
+    .about-text {
       background: white;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #444;
     }
-
-    .profile-img {
-      width: 250px;
-      height: auto;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .about-content {
-      max-width: 600px;
-    }
-
     .btn {
       display: inline-block;
-      padding: 10px 20px;
       background: #007bff;
-      color: #fff;
-      border-radius: 5px;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 6px;
       text-decoration: none;
-      margin-top: 1rem;
+      font-weight: 600;
       transition: background 0.3s ease;
+      margin-bottom: 3rem;
     }
-
     .btn:hover {
       background: #0056b3;
     }
-
     .skills {
-      margin-top: 3rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      text-align: left;
     }
-
+    .skills h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #222;
+    }
     .skill {
       margin-bottom: 1rem;
     }
-
     .skill-name {
       margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #333;
     }
-
     .progress {
       background-color: #ddd;
       border-radius: 20px;
       overflow: hidden;
+      height: 22px;
     }
-
     .progress-bar {
-      height: 20px;
+      height: 22px;
       background-color: #007bff;
       color: white;
       text-align: center;
-      line-height: 20px;
+      line-height: 22px;
+      font-weight: 600;
     }
-
     footer {
       text-align: center;
       padding: 2rem;
       background-color: #222;
       color: white;
       margin-top: 3rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Welcome to My Portfolio</h1>
+    <img
+      src="https://github.com/arfin1416/Arfin-Portfolio/blob/main/self%20intro.png?raw=true"
+      alt="Arfin Rahman Nirjona Profile Picture"
+      class="profile-img"
+      loading="lazy"
+    />
+    <h1>Arfin Rahman Nirjona</h1>
+    <h2>Digital Marketer & Graphic Designer</h2>
 
-    <section class="about" id="about">
-      <h2>About Me</h2>
-      <div class="about-container">
-        <img src="https://github.com/arfin1416/Arfin-Portfolio/blob/main/self%20intro.png?raw=true" alt="Profile Picture" class="profile-img">
-        <div class="about-content">
-          <h3>Hi, I'm Arfin Rahman Nirjona 👋</h3>
-          <p>
-            I'm a passionate web enthusiast and aspiring creative professional. With a deep love for design and storytelling, I blend my skills into everything I create — whether it's social media management, graphics, or building something meaningful. Let's build something amazing together!
-          </p>
-          <a href="#" class="btn">Download Resume</a>
-        </div>
-      </div>
-    </section>
+    <div class="about-text">
+      I'm a passionate web enthusiast and aspiring creative professional. With a deep love for design and storytelling, I blend my skills into everything I create — whether it's social media management, graphics, or building something meaningful. Let's build something amazing together!
+    </div>
+
+    <a href="#" class="btn">Download Resume</a>
 
     <section class="skills" id="skills">
       <h2>Skills</h2>
       <div class="skill">
         <div class="skill-name">HTML</div>
-        <div class="progress"><div class="progress-bar" style="width: 90%">90%</div></div>
+        <div class="progress"><div class="progress-bar" style="width: 90%;">90%</div></div>
       </div>
       <div class="skill">
         <div class="skill-name">CSS</div>
-        <div class="progress"><div class="progress-bar" style="width: 85%">85%</div></div>
+        <div class="progress"><div class="progress-bar" style="width: 85%;">85%</div></div>
       </div>
       <div class="skill">
         <div class="skill-name">Photoshop</div>
-        <div class="progress"><div class="progress-bar" style="width: 80%">80%</div></div>
+        <div class="progress"><div class="progress-bar" style="width: 80%;">80%</div></div>
       </div>
       <div class="skill">
         <div class="skill-name">Social Media Management</div>
-        <div class="progress"><div class="progress-bar" style="width: 95%">95%</div></div>
+        <div class="progress"><div class="progress-bar" style="width: 95%;">95%</div></div>
       </div>
     </section>
 
@@ -142,4 +146,3 @@
   </div>
 </body>
 </html>
-
