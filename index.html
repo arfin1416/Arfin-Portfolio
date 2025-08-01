@@ -1,212 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Arfin Rahman Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Arfin Rahman Nirjona's Professional Portfolio Website">
+  <meta name="author" content="Arfin Rahman Nirjona">
+  <title>Arfin Rahman Nirjona</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: sans-serif; line-height: 1.6; scroll-behavior: smooth; }
+    :root {
+      --primary-color: #222831;
+      --secondary-color: #393e46;
+      --accent-color: #00adb5;
+      --text-color: #eeeeee;
+      --bg-color: #222831;
+      --card-bg: #393e46;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
     header {
-      position: fixed;
+      background: var(--primary-color);
+      position: sticky;
       top: 0;
-      right: 0;
-      left: 0;
-      background: #111;
-      color: white;
-      padding: 10px 20px;
+      z-index: 1000;
+      padding: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
-    .menu-icon {
-      font-size: 24px;
-      cursor: pointer;
-    }
-    nav {
-      display: none;
-      position: absolute;
-      top: 50px;
-      right: 20px;
-      background: #222;
-      padding: 10px;
-      border-radius: 8px;
-    }
+
     nav a {
-      display: block;
-      color: white;
+      color: var(--text-color);
+      margin: 0 1rem;
       text-decoration: none;
-      padding: 5px;
+      transition: color 0.3s;
     }
+
     nav a:hover {
-      background: #333;
+      color: var(--accent-color);
     }
-    .section { padding: 80px 20px 40px; }
-    .center { text-align: center; }
-    img.profile {
-      width: 150px;
-      border-radius: 50%;
-      margin-top: 60px;
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(to right, #232526, #414345);
+      padding: 2rem;
     }
-    .typing {
-      font-size: 22px;
-      color: #333;
-      height: 28px;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 3px solid black;
-      animation: typing 3s steps(30) infinite alternate;
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent-color);
     }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
     }
-    .works img, .hobbies img {
+
+    section {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--accent-color);
+    }
+
+    img {
+      max-width: 300px;
       width: 90%;
-      max-width: 400px;
-      margin: 20px auto;
-      display: block;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 1s ease-out;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      margin: 1rem;
+      transition: transform 0.3s;
     }
-    .visible {
-      opacity: 1;
-      transform: translateY(0);
+
+    img:hover {
+      transform: scale(1.05);
     }
-    .social-icons a {
-      margin: 0 10px;
-      text-decoration: none;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: 0 auto;
     }
-    .scroll-top {
+
+    input,
+    textarea {
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      padding: 0.75rem;
+      background-color: var(--accent-color);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #019ca1;
+    }
+
+    .top-button {
       position: fixed;
       bottom: 30px;
       right: 30px;
-      background: #000;
-      color: white;
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-    }
-    form button {
-      padding: 10px 20px;
-      background: #333;
+      background-color: var(--accent-color);
       color: white;
       border: none;
+      border-radius: 50%;
+      padding: 10px 15px;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .top-button.show {
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--secondary-color);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      nav a {
+        margin: 0 0.5rem;
+      }
     }
   </style>
 </head>
+
 <body>
+  <header>
+    <div><strong>Arfin's Portfolio</strong></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#hobby">Hobby</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<header>
-  <div><strong>Arfin</strong></div>
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
-  <nav id="navMenu">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="#hobby">Hobby</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="section center" id="home">
-  <img src="https://github.com/arfin1416/Arfin-Portfolio/blob/main/self%20intro.png?raw=true" class="profile" alt="Profile Photo" />
-  <h1>Arfin Rahman Nirjona</h1>
-  <div class="typing">Graphic Designer & Digital Marketer</div>
-</section>
-
-<section class="section center" id="about">
-  <h2>About Me</h2>
-  <p>I am a graphic designer with 1 year of experience. I specialize in creative design, branding, and content editing. Passionate about turning ideas into visual stories.</p>
-</section>
-
-
-  <section class="works">
-    <h2>My Works</h2>
-    <div class="work-gallery">
-      <img src="https://github.com/arfin1416/Arfin-Portfolio/blob/main/Dark%20Brown%20Minimalist%20Boho%20Aesthetic%20Style%20Restock%20Rattan%20Bag%20Instagram%20Post.png?raw=true" alt="Work 1">
-      <img src="https://github.com/arfin1416/Arfin-Portfolio/blob/main/Dark%20Gray%20Simple%20Product%20Catalog%20Instagram%20Post.png?raw=true" alt="Work 2">
-      <img src="https://github.com/arfin1416/Arfin-Portfolio/blob/main/Yellow%20Smart%20Watch%20Promotion%20Modern%20Instagram%20Post.png?raw=true" alt="Work 3">
-    </div>
+  <section class="hero">
+    <h1 id="typewriter"></h1>
+    <p>Welcome to my creative space on the web. Discover my work, hobbies, and passions.</p>
   </section>
-</section>
 
-<section class="hobbies" id="hobbies">
-  <h2>My Hobbies</h2>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Arfin Rahman Nirjona. A creative soul who loves writing, editing, cats, and marketing design. This is my portfolio showcasing everything I love and do!</p>
+  </section>
 
-  <div class="hobby-item">
-    <img src="https://github.com/arfin1416/Arfin-rahman/blob/main/z.jpg?raw=true" alt="Workout">
+  <section id="work">
+    <h2>My Works</h2>
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-Portfolio/blob/main/Dark%20Brown%20Minimalist%20Boho%20Aesthetic%20Style%20Restock%20Rattan%20Bag%20Instagram%20Post.png?raw=true" alt="Work 1">
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-Portfolio/blob/main/Dark%20Gray%20Simple%20Product%20Catalog%20Instagram%20Post.png?raw=true" alt="Work 2">
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-Portfolio/blob/main/Yellow%20Smart%20Watch%20Promotion%20Modern%20Instagram%20Post.png?raw=true" alt="Work 3">
+    <p>More at: <a href="https://facebook.com/brandhypeorg" target="_blank">facebook.com/brandhypeorg</a></p>
+  </section>
+
+  <section id="hobby">
+    <h2>My Hobbies</h2>
     <p>Workout</p>
-  </div>
-
-  <div class="hobby-item">
-    <img src="https://github.com/arfin1416/Arfin-rahman/blob/main/f.jpg?raw=true" alt="Writing">
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-rahman/blob/main/z.jpg?raw=true" alt="Workout">
     <p>Writing</p>
-  </div>
-
-  <div class="hobby-item">
-    <img src="https://github.com/arfin1416/Arfin-rahman/blob/main/a.jpg?raw=true" alt="Music & Guitar">
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-rahman/blob/main/f.jpg?raw=true" alt="Writing">
     <p>Music & Guitar</p>
-  </div>
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-rahman/blob/main/a.jpg?raw=true" alt="Music">
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-rahman/blob/main/e.jpg?raw=true" alt="Guitar">
+    <p>Travel</p>
+    <img loading="lazy" src="https://github.com/arfin1416/Arfin-rahman/blob/main/c.jpg?raw=true" alt="Travel">
+    <p>Editing & Cat Lover</p>
+  </section>
 
-  <div class="hobby-item">
-    <img src="https://github.com/arfin1416/Arfin-rahman/blob/main/e.jpg?raw=true" alt="Guitar">
-    <p>Guitar</p>
-  </div>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form action="mailto:arnir1416@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p>Email: arnir1416@gmail.com</p>
+    <p>Location: Rangpur</p>
+    <p><a href="https://facebook.com/brandhypeorg" target="_blank">Facebook</a></p>
+  </section>
 
-  <div class="hobby-item">
-    <img src="h
+  <button class="top-button" id="topBtn">↑</button>
 
-<section class="section center" id="contact">
-  <h2>Contact Me</h2>
-  <p>Email: <a href="mailto:arnir1416@gmail.com">arnir1416@gmail.com</a></p>
-  <p>Address: Rangpur</p>
-  <form action="mailto:arnir1416@gmail.com" method="post" enctype="text/plain">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" rows="5" placeholder="Your Message"></textarea>
-    <button type="submit">Send</button>
-  </form>
-  <div class="social-icons">
-    <a href="https://facebook.com/arfinrahmannir" target="_blank">Facebook</a>
-    <a href="https://instagram.com/arfinrahmannir" target="_blank">Instagram</a>
-  </div>
-</section>
+  <footer>
+    <p>&copy; 2025 Arfin Rahman Nirjona</p>
+  </footer>
 
-<div class="scroll-top" onclick="scrollToTop()">↑</div>
+  <script>
+    // Typewriter effect
+    const texts = ["I am Arfin Rahman Nirjona", "Creative Designer", "Content Writer", "Cat Lover"];
+    let i = 0, j = 0, currentText = '', isDeleting = false;
+    const typewriter = document.getElementById("typewriter");
 
-<script>
-  const menu = document.getElementById('navMenu');
-  function toggleMenu() {
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-  }
+    function type() {
+      currentText = texts[i];
+      typewriter.innerHTML = isDeleting ? currentText.substring(0, j--) : currentText.substring(0, j++);
+      if (!isDeleting && j === currentText.length + 1) isDeleting = true;
+      if (isDeleting && j === 0) { isDeleting = false; i = (i + 1) % texts.length; }
+      setTimeout(type, isDeleting ? 50 : 100);
+    }
+    type();
 
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // Lazy load
-  const images = document.querySelectorAll("img[data-src]");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
-        img.classList.add("visible");
-        observer.unobserve(img);
-      }
+    // Scroll to top
+    const topBtn = document.getElementById("topBtn");
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 200) topBtn.classList.add("show");
+      else topBtn.classList.remove("show");
     });
-  });
-  images.forEach(img => observer.observe(img));
-</script>
-
+    topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
 </body>
-</html>
 
+</html>
